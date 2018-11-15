@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>location.href vs location.assign</title>
+  </head>
+  <body>
+    <button id="location.href">location.href</button>
+    <button id="location.assign">location.assign</button>
+    <ul id="log"></ul>
+  </body>
+  <script>
+    function log(message) {
+      var li = document.createElement("li");
+      li.innerHTML = message;
+      document.getElementById("log").appendChild(li);
+    }
+
+    document.getElementById("location.href").onclick = function() {
+      log("location.href > start");
+      location.href = "./dummy.html";
+      log("location.href > end");
+    };
+
+    document.getElementById("location.assign").onclick = function() {
+      log("location.assign > start");
+      location.assign("./dummy.html");
+      log("location.assign > end");
+    };
+  </script>
+</html>
